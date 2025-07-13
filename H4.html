@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>H4 - Por qué no te hablaba</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Raleway:ital,wght@0,400;0,600;1,400&display=swap');
+
+    body {
+      margin: 0;
+      background: linear-gradient(135deg, #a992c9, #c4b5e8);
+      font-family: 'Raleway', sans-serif;
+      font-style: normal;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      height: 100vh;
+      padding: 30px;
+      box-sizing: border-box;
+      color: #3e2c63;
+      border: 12px dotted #7b6cb9;
+      box-shadow: 0 0 15px rgba(123,108,185,0.5);
+      overflow: hidden;
+      position: relative;
+    }
+
+    p {
+      font-size: 1.5em;
+      max-width: 700px;
+      background: rgba(230, 230, 255, 0.7);
+      padding: 30px 40px;
+      border-radius: 18px;
+      box-shadow: 0 0 12px rgba(126, 109, 193, 0.4);
+      line-height: 1.7;
+      font-style: normal;
+      font-weight: 600;
+      z-index: 10;
+      position: relative;
+    }
+
+    .emoji {
+      position: absolute;
+      font-size: 2.5em;
+      user-select: none;
+      animation: flotar 7s linear infinite;
+      opacity: 0.8;
+      pointer-events: none;
+    }
+
+    @keyframes flotar {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100vh) scale(1.5);
+        opacity: 0;
+      }
+    }
+
+    .regresar-btn {
+      margin-top: 30px;
+      padding: 12px 24px;
+      font-size: 1em;
+      background-color: #7b6cb9;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      z-index: 10;
+    }
+
+    .regresar-btn:hover {
+      background-color: #5f54a3;
+    }
+  </style>
+</head>
+<body>
+  <p>
+    La verdad, al principio creí que no querrías entablar conversaciones conmigo, más que nada por la edad, porque no nos conocíamos de nada, y porque nos íbamos a ver muy poco tiempo. Pero todo cambió aquel 12 de abril. En ese momento algo fue distinto, y ahí te convertiste en alguien muy especial para mí.
+  </p>
+
+  <!-- Botón de regresar -->
+  <a href="H3.html">
+    <button class="regresar-btn">Regresar</button>
+  </a>
+
+  <script>
+    const emojis = ['🥺', '💗', '🫶'];
+
+    // Para cada emoji, crea 2 instancias flotantes
+    emojis.forEach(emoji => {
+      for(let i = 0; i < 2; i++) {
+        const elem = document.createElement('div');
+        elem.className = 'emoji';
+        elem.textContent = emoji;
+        elem.style.left = Math.random() * 100 + 'vw';
+        elem.style.top = Math.random() * 100 + 'vh';
+        elem.style.fontSize = (Math.random() * 20 + 25) + 'px';
+        elem.style.animationDelay = (Math.random() * 7) + 's';
+        document.body.appendChild(elem);
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>H5 - Qué pensé cuando te vi</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Raleway:ital,wght@0,400;0,600;1,400&display=swap');
+
+    body {
+      margin: 0;
+      background: linear-gradient(135deg, #bca7d8, #d7c9ee);
+      font-family: 'Raleway', sans-serif;
+      font-style: normal;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      height: 100vh;
+      padding: 30px;
+      box-sizing: border-box;
+      color: #3e2c63;
+      border: 12px dotted #9a84c8;
+      box-shadow: 0 0 15px rgba(123,108,185,0.4);
+      overflow: hidden;
+      position: relative;
+    }
+
+    p {
+      font-size: 1.5em;
+      max-width: 700px;
+      background: rgba(230, 230, 255, 0.7);
+      padding: 30px 40px;
+      border-radius: 18px;
+      box-shadow: 0 0 12px rgba(126, 109, 193, 0.4);
+      line-height: 1.7;
+      font-style: normal;
+      font-weight: 600;
+      z-index: 10;
+      position: relative;
+    }
+
+    .emoji {
+      position: absolute;
+      font-size: 2.5em;
+      user-select: none;
+      animation: flotar 7s linear infinite;
+      opacity: 0.8;
+      pointer-events: none;
+    }
+
+    @keyframes flotar {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100vh) scale(1.5);
+        opacity: 0;
+      }
+    }
+
+    .boton-regresar {
+      margin-top: 20px;
+      padding: 12px 25px;
+      font-size: 1.1em;
+      font-weight: bold;
+      color: white;
+      background-color: #9a84c8;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: background-color 0.3s ease;
+      z-index: 10;
+    }
+
+    .boton-regresar:hover {
+      background-color: #7c66ad;
+    }
+  </style>
+</head>
+<body>
+  <p>
+    En ese momento no fue nada especial, lo único que pensé fue: "Mmm... le caí mal".  
+    Pero conforme pasó el tiempo, me di cuenta de que no.  
+    Otra impresión que tuve fue que eras una chica fresa, no sé, simplemente lo pensé.  
+    Esa es otra de las razones por las cuales andaba muy tímido, sin hablarte o acercarme a ti.
+  </p>
+
+  <button class="boton-regresar" onclick="window.location.href='H3.html'">Regresar a H3</button>
+
+  <script>
+    const emojis = ['🥺', '💗', '🫶'];
+
+    // Crea 2 emojis de cada tipo
+    emojis.forEach(emoji => {
+      for (let i = 0; i < 2; i++) {
+        const elem = document.createElement('div');
+        elem.className = 'emoji';
+        elem.textContent = emoji;
+        elem.style.left = Math.random() * 100 + 'vw';
+        elem.style.top = Math.random() * 100 + 'vh';
+        elem.style.fontSize = (Math.random() * 20 + 25) + 'px';
+        elem.style.animationDelay = (Math.random() * 7) + 's';
+        document.body.appendChild(elem);
+      }
+    });
+  </script>
+</body>
+</html>

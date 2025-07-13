@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>H3 - Preguntas</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #ffe4ec;
+      font-family: 'Segoe Script', cursive;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      border: 20px double #ff69b4;
+      padding: 20px;
+      box-sizing: border-box;
+      color: #6c1e3b;
+    }
+
+    .boton-con-texto {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin: 15px 0;
+      cursor: pointer;
+      background-color: #ff69b4;
+      border-radius: 12px;
+      padding: 12px 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: background-color 0.3s ease;
+      width: 320px;
+      max-width: 90vw;
+      color: white;
+      font-size: 1.3em;
+      user-select: none;
+    }
+
+    .boton-con-texto:hover {
+      background-color: #ff1493;
+    }
+
+    button {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5em;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    /* Para que el texto esté al lado del botón */
+    .texto {
+      flex-grow: 1;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="boton-con-texto" onclick="window.location.href='H4.html'">
+    <button>1.</button>
+    <div class="texto">Por qué no te hablaba</div>
+  </div>
+
+  <div class="boton-con-texto" onclick="window.location.href='H5.html'">
+    <button>2.</button>
+    <div class="texto">Qué pensé cuando te vi</div>
+  </div>
+
+  <div class="boton-con-texto" onclick="window.location.href='H6.html'">
+    <button>3.</button>
+    <div class="texto">Por qué eres tan especial para mí</div>
+  </div>
+
+</body>
+</html>

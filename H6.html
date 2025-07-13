@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>H6 - Por qué eres tan especial para mí</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Raleway:ital,wght@0,400;0,600;1,400&display=swap');
+
+    body {
+      margin: 0;
+      background: linear-gradient(135deg, #d2b9e3, #eee0fa);
+      font-family: 'Raleway', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      height: 100vh;
+      padding: 30px;
+      box-sizing: border-box;
+      color: #3e2c63;
+      border: 12px dashed #b08fdc;
+      box-shadow: 0 0 15px rgba(144,120,210,0.4);
+      overflow: hidden;
+      position: relative;
+    }
+
+    p {
+      font-size: 1.5em;
+      max-width: 700px;
+      background: rgba(245, 240, 255, 0.8);
+      padding: 30px 40px;
+      border-radius: 18px;
+      box-shadow: 0 0 12px rgba(126, 109, 193, 0.4);
+      line-height: 1.7;
+      font-weight: 600;
+      z-index: 10;
+      position: relative;
+    }
+
+    .emoji {
+      position: absolute;
+      font-size: 2.5em;
+      user-select: none;
+      animation: flotar 7s linear infinite;
+      opacity: 0.8;
+      pointer-events: none;
+    }
+
+    @keyframes flotar {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100vh) scale(1.5);
+        opacity: 0;
+      }
+    }
+
+    .boton {
+      margin-top: 30px;
+      font-size: 1.5em;
+      background-color: #b980de;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 30px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      cursor: pointer;
+      z-index: 2;
+      transition: background-color 0.3s ease;
+    }
+
+    .boton:hover {
+      background-color: #a065cc;
+    }
+  </style>
+</head>
+<body>
+  <p>
+    Lo eres... ¿por qué? Jskajsk, solo tú.  
+    Tu manera tan única de ser, tu forma de expresarte, tu forma de entenderme,  
+    tu capacidad de sacarme una sonrisa y alegrar mi día, aún estando lejos.  
+    <br><br>
+    Te quiero porque me convertiste en otra persona,  
+    sacaste mi lado cariñoso, me entendiste,  
+    fuiste la persona con la cual pude ser yo mismo.  
+    Por eso te aprecio, y eres y significas tanto para mí.  
+  </p>
+
+  <button class="boton" onclick="window.location.href='H7.html'">Siguiente 💌</button>
+
+  <script>
+    const emojis = ['🥺', '💗', '🫶'];
+    emojis.forEach(emoji => {
+      for (let i = 0; i < 2; i++) {
+        const e = document.createElement('div');
+        e.className = 'emoji';
+        e.textContent = emoji;
+        e.style.left = Math.random() * 100 + 'vw';
+        e.style.top = Math.random() * 100 + 'vh';
+        e.style.fontSize = (Math.random() * 20 + 25) + 'px';
+        e.style.animationDelay = (Math.random() * 7) + 's';
+        document.body.appendChild(e);
+      }
+    });
+  </script>
+</body>
+</html>

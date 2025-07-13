@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>H9 - Final</title>
+  <style>
+    body {
+      margin: 0;
+      background: #7d4ac7; /* morado estilo 🟣 */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      height: 100vh;
+      font-family: 'Raleway', cursive;
+      color: white;
+    }
+
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+
+    .mensaje {
+      z-index: 1;
+      font-size: 2.5em;
+      font-family: 'Great Vibes', cursive;
+      color: #ffe6ff;
+      margin-top: 70vh;
+      text-shadow: 2px 2px 5px #00000055;
+    }
+
+    .explosion {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: radial-gradient(circle, #ff80bf, #ff1a75);
+      border-radius: 50%;
+      opacity: 0.7;
+      animation: explotar 0.6s ease-out forwards;
+      pointer-events: none;
+    }
+
+    @keyframes explotar {
+      0% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(4);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="canvas"></canvas>
+  <div class="mensaje">Te amo</div>
+
+  <script>
+    const canvas = document.getElementById("canvas");
+    const ctx = canvas.getContext("2d");
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const heartParticles = [];
+    const centerX = canvas.width / 2;
+    const centerY = canvas.height / 2.2;
+
+    // Genera coordenadas en forma de corazón
+    function heartFunction(t) {
+      const x = 16 * Math.pow(Math.sin(t), 3);
+      const y = -(
+        13 * Math.cos(t) -
+        5 * Math.cos(2 * t) -
+        2 * Math.cos(3 * t) -
+        Math.cos(4 * t)
+      );
+      return { x: x * 10, y: y * 10 };
+    }
+
+    for (let i = 0; i < 1500; i++) {
+      const t = Math.random() * Math.PI * 2;
+      const pos = heartFunction(t);
+      heartParticles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        targetX: centerX + pos.x,
+        targetY: centerY + pos.y,
+        speed: Math.random() * 1 + 0.5,
+        size: Math.random() * 1.2 + 0.5,
+        color: `rgba(255,192,203,${Math.random() * 0.8 + 0.2})`
+      });
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      heartParticles.forEach(p => {
+        const dx = p.targetX - p.x;
+        const dy = p.targetY - p.y;
+        p.x += dx * 0.01 * p.speed;
+        p.y += dy * 0.01 * p.speed;
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fillStyle = p.color;
+        ctx.fill();
+      });
+
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+
+    // Interacción visual al tocar
+    document.body.addEventListener("click", e => {
+      const explosion = document.createElement("div");
+      explosion.className = "explosion";
+      explosion.style.left = `${e.clientX - 10}px`;
+      explosion.style.top = `${e.clientY - 10}px`;
+      document.body.appendChild(explosion);
+      setTimeout(() => explosion.remove(), 600);
+    });
+  </script>
+</body>
+</html>
